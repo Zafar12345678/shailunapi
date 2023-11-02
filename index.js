@@ -3,11 +3,11 @@ const app = express();
 const mongoose = require('mongoose');
 const cors = require("cors");
 
- mongoose.connect("mongodb+srv://merningday123:merningday123@cluster0.6llqgoh.mongodb.net/software?retryWrites=true&w=majority"
-//     useNewUrlParser: true,
-//     useUnifiedTopology: true,
-//     dbName: "software" // Specify the database name here
-);
+mongoose.connect("mongodb+srv://merningday123:merningday123@cluster0.6llqgoh.mongodb.net/software?retryWrites=true&w=majority", {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    dbName: "software"
+});
 
 app.use(cors());
 

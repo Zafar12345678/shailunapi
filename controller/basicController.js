@@ -1,10 +1,11 @@
 const Post = require("../models/basicModel");
-const post_creat = async (req, res) => {
+
+const postCreate = async (req, res) => {
   try {
     const newPost = new Post({
       title: req.body.title,
-      discription:req.body.discription // Assuming 'date' should be stored in the 'data' field
-    //   image: req.file.filename, // Corrected 'filname' to 'filename'
+      description: req.body.description, // corrected typo: 'discription' to 'description'
+      // image: req.file.filename, // Assuming you are handling file upload separately
     });
 
     const postData = await newPost.save();
@@ -13,24 +14,22 @@ const post_creat = async (req, res) => {
     res.status(400).send({ success: false, msg: error.message });
   }
 };
-//  gate api methode 
-const getGatedata = async (req, res) => {
-    try {
-      const myData = await Post.find();
-      const path = require("path");
-      const imagepath = myData.map((img) => ({
-        // imagePath: path.join(__dirname, '..', 'public/postImages', img.image),
-        title: img.title,
-        discription:img.discription
-        
-      }));
-      res.status(200).json(imagepath);
-    } catch (error) {
-      res.status(400).send({ success: false, msg: error.message });
-    }
-  };
 
-module.exports={
-    post_creat,
-    getGatedata
-}
+const getGatedata = async (req, res) => {
+  try {
+    const myData = await Post.find();
+    const imagePath = myData.map((img) => ({
+      title: img.title,
+      description: img.description, // corrected typo: 'discription' to 'description'
+      // imagePath: path.join(__dirname, '..', 'public/postImages', img.image),
+    }));
+    res.status(200).json(imagePath); // corrected variable name: 'imagepath' to 'imagePath'
+  } catch (error) {
+    res.status(400).send({ success: false, msg: error.message });
+  }
+};
+
+module.exports = {
+  postCreate, // corrected function name: 'post_creat' to 'postCreate'
+  getGatedata
+};

@@ -5,9 +5,9 @@ const postSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    discription: {
+    description: {
         type: String,
-       required: true
+        required: true
     },
     // image: {
     //     type: String,
