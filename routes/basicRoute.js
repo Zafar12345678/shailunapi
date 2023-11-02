@@ -25,7 +25,7 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage });
 const post_controllers = require("../controller/basicController");
 post_route.post("/post-route",post_controllers.post_creat);
-post_route.get("/gat-route",post_controllers.getGatedata);
+post_route.get("/gat-route",post_controllers.getGatedata)
 // const auth = require("../middleware/auth");
 // const post_controllers = require("../controllers/postController");
 // post_route.post("/post-route",upload.single("image"), post_controllers.post_creat);
