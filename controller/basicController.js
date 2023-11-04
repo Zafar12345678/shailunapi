@@ -29,7 +29,18 @@ const getGatedata = async (req, res) => {
   }
 };
 
+let inspect; // inspect is undefined
+let defaultInspect = "Default Value";
+inspect ??= defaultInspect;
+console.log(inspect); // Output: "Default Value"
+
+// Alternative approach without nullish coalescing assignment operator
+let inspectAlt; // inspect is undefined
+let defaultInspectAlt = "Default Value";
+inspectAlt = inspectAlt !== undefined ? inspectAlt : defaultInspectAlt;
+console.log(inspectAlt); // Output: "Default Value"
+
 module.exports = {
-  postCreate, // corrected function name: 'post_creat' to 'postCreate'
+  postCreate,
   getGatedata
 };
